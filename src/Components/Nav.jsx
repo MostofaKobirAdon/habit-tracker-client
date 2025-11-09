@@ -1,10 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Nav = () => {
   const links = (
     <>
-      <NavLink>Home</NavLink>
+      <NavLink to={"/"} className="hover:cursor-pointer">
+        Home
+      </NavLink>
+      <NavLink to={"add-habit"} className="hover:cursor-pointer">
+        Add Habit
+      </NavLink>
     </>
   );
   return (
@@ -41,10 +46,18 @@ const Nav = () => {
           </h1>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu text-[#212121] menu-horizontal px-1">{links}</ul>
+          <ul className="menu gap-4 text-[#212121] menu-horizontal px-1">
+            {links}
+          </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn btn-primary text-white">Button</a>
+        <div className="navbar-end gap-2">
+          <Link
+            to={"/login"}
+            className="btn btn-primary btn-outline hover:text-white"
+          >
+            Log In
+          </Link>
+          <button className="btn btn-primary text-white">Sign Up</button>
         </div>
       </div>
     </div>

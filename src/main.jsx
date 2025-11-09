@@ -5,6 +5,8 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Root from "./Layouts/Root.jsx";
 import Home from "./Pages/Home.jsx";
+import AddHabit from "./Pages/AddHabit.jsx";
+import Login from "./Pages/Auth/Login.jsx";
 
 // router-----
 const router = createBrowserRouter([
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/add-habit",
+        element: <AddHabit></AddHabit>,
       },
     ],
   },

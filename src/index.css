@@ -11,7 +11,11 @@
   color-scheme: light;
 
   --color-primary: #64b5f6;
-  --bg-base-100: #f8fbff;
+  --color-base-100: #edeef5;
   --color-secondary: #a5d6a750;
   --color-accent: #e3f2fd;
+}
+
+.active {
+  border-bottom: 1.5px solid green;
 }
