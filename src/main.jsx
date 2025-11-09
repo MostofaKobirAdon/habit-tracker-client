@@ -7,6 +7,7 @@ import Root from "./Layouts/Root.jsx";
 import Home from "./Pages/Home.jsx";
 import AddHabit from "./Pages/AddHabit.jsx";
 import Login from "./Pages/Auth/Login.jsx";
+import Register from "./Pages/Auth/Register.jsx";
 
 // router-----
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
       {
         path: "/add-habit",
