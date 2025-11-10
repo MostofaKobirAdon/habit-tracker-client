@@ -8,6 +8,7 @@ import Home from "./Pages/Home.jsx";
 import AddHabit from "./Pages/AddHabit.jsx";
 import Login from "./Pages/Auth/Login.jsx";
 import Register from "./Pages/Auth/Register.jsx";
+import NotFound from "./Pages/NotFound.jsx";
 
 // router-----
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         element: <AddHabit></AddHabit>,
       },
     ],
+  },
+  {
+    path: "/*",
+    element: <NotFound></NotFound>,
   },
 ]);
 
