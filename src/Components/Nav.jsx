@@ -13,7 +13,7 @@ const Nav = () => {
     </>
   );
   return (
-    <div className="bg-secondary/30 shadow-sm absolute z-10 left-0 right-0 top-0">
+    <div className="bg-secondary/90 shadow-sm fixed z-10 left-0 right-0 top-0">
       <div className="navbar  max-w-6xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -42,7 +42,7 @@ const Nav = () => {
             </ul>
           </div>
           <h1 className=" text-xl">
-            <span className="font-bold text-blue-500">HABIT</span>TRACKER
+            <span className="font-bold text-primary">HABIT</span> TRACKER
           </h1>
         </div>
         <div className="navbar-center hidden lg:flex">
