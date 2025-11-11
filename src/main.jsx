@@ -7,8 +7,9 @@ import Root from "./Layouts/Root.jsx";
 import Home from "./Pages/Home.jsx";
 import AddHabit from "./Pages/AddHabit.jsx";
 import Login from "./Pages/Auth/Login.jsx";
-import Register from "./Pages/Auth/Register.jsx";
 import NotFound from "./Pages/NotFound.jsx";
+import Register from "./Pages/Auth/Register.jsx";
+import AuthProvider from "./Context/AuthProvider.jsx";
 
 // router-----
 const router = createBrowserRouter([
@@ -42,6 +43,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      {" "}
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

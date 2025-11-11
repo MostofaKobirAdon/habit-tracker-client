@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
+import AuthContext from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Nav = () => {
+  const { user, logOut } = useContext(AuthContext);
   const links = (
     <>
       <NavLink to={"/"} className="hover:cursor-pointer">
@@ -12,6 +15,28 @@ const Nav = () => {
       </NavLink>
     </>
   );
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Logged out successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
   return (
     <div className="bg-secondary/90 shadow-sm fixed z-10 left-0 right-0 top-0">
       <div className="navbar  max-w-6xl mx-auto">
@@ -51,15 +76,46 @@ const Nav = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
-          <Link
-            to={"/login"}
-            className="btn btn-primary btn-outline hover:text-white"
-          >
-            Log In
-          </Link>
-          <Link to={"/register"} className="btn btn-primary text-white">
-            Sign Up
-          </Link>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="h-12 w-12 hover:scale-105 duration-75"
+              >
+                <img
+                  src={user?.photoURL}
+                  alt=""
+                  className="h-full w-full rounded-full border-2 border-primary"
+                />
+              </div>
+              <div
+                tabIndex="-1"
+                className="dropdown-content text-center  bg-base-100 rounded-box z-1 min-w-52 p-3 shadow-sm"
+              >
+                <h1 className="text-xl font-bold">{user.displayName}</h1>
+                <p className=" font-medium">{user.email}</p>
+                <button
+                  onClick={handleSignOut}
+                  className="btn btn-primary mt-2"
+                >
+                  Sign Out
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="">
+              <Link
+                to={"/login"}
+                className="btn btn-primary btn-outline hover:text-white"
+              >
+                Log In
+              </Link>
+              <Link to={"/register"} className="btn btn-primary text-white">
+                Sign Up
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

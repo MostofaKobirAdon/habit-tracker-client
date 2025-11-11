@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import AuthContext from "../../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    login(email, password)
+      .then((result) => {
+        const user = result.user;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Logged in successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
+      .catch((err) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      });
+  };
   return (
     <div className="bg-base-100 pb-15 pt-30">
       <div className="max-w-lg mx-auto">
@@ -10,15 +40,17 @@ const Login = () => {
           Log In To Your Account
         </h1>
         <div className="card-body shadow-lg bg-blue-50 rounded-2xl flex items-center py-10 justify-center">
-          <form className="fieldset w-[350px] ">
+          <form onSubmit={handleLogin} className="fieldset w-[350px] ">
             <label className="label">Email</label>
             <input
               type="email"
+              name="email"
               className="input  w-full bg-white"
               placeholder="Email"
             />
             <label className="label">Password</label>
             <input
+              name="password"
               type="password"
               className="input w-full bg-white"
               placeholder="Password"
@@ -26,7 +58,9 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn btn-primary mt-4">Login</button>
+            <button type="submit" className="btn btn-primary mt-4">
+              Login
+            </button>
           </form>
           <div className="divider w-[350px] mx-auto">OR</div>
           <div className="w-[350px]">
@@ -41,7 +75,7 @@ const Login = () => {
                 to={"/register"}
                 className="text-blue-600 hover:cursor-pointer hover:underline"
               >
-                Sign In
+                Sign Up
               </Link>
             </p>
           </div>

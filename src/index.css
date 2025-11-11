@@ -16,6 +16,7 @@
   --color-secondary: #a5d6a750;
   --color-accent: #e3f2fd;
   --color-base-content: #093685;
+  --color-error: #e01010;
 }
 
 .active {
