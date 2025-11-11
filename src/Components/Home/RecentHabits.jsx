@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import Card from "../Card";
 
-const RecentHabits = () => {
+const RecentHabits = ({ latestHabitPromise }) => {
+  const latestHabits = use(latestHabitPromise).data;
+  console.log(latestHabits);
   return (
     <div>
       <div className="max-w-6xl mx-auto mt-16 mb-10">
@@ -15,18 +17,9 @@ const RecentHabits = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-15 mt-8">
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+          {latestHabits.map((habit) => (
+            <Card key={habit._id} data={habit}></Card>
+          ))}
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 
-const Card = () => {
+const Card = ({ data }) => {
+  const { title, description, creator_name } = data;
   const shortDescription = (text) => {
     if (text.length <= 74) {
       return text;
@@ -16,17 +17,13 @@ const Card = () => {
       />
       <div className="absolute rounded-b-xl bottom-0 bg-linear-to-b right-0 left-0 h-70 from-transparent to-base-100">
         <div className="absolute bottom-0 p-3">
-          <h2 className="text-black text-xl font-semibold">
-            Walking 30 minuts
-          </h2>
+          <h2 className="text-black text-xl font-semibold">{title}</h2>
           <p className="text-sm text-gray-800 mt-1 h-10">
-            {shortDescription(
-              " lorem lorem lorem vlorem lorem lorem lorem lorem lorem lorem lorem lorem lorem v v lorem"
-            )}
+            {shortDescription(description)}
           </p>
           <p className="text-sm mt-1 text-gray-800">
-            <span className="font-bold">Creator : </span>
-            Albert Newton Hoker
+            <span className="font-bold">Creator : {creator_name}</span>
+            {}
           </p>
           <button className="btn-primary btn w-full mt-2">View Details</button>
         </div>

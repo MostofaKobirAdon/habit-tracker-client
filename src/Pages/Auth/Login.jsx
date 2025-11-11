@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import AuthContext from "../../Context/AuthContext";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const location = useLocation();
+  const { login, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,7 +22,30 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/");
+        navigate(`${location.state || "/"}`);
+      })
+      .catch((err) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      });
+  };
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `Logged in successfully`,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        navigate(`${location.state || "/"}`);
       })
       .catch((err) => {
         Swal.fire({
@@ -47,10 +71,12 @@ const Login = () => {
               name="email"
               className="input  w-full bg-white"
               placeholder="Email"
+              required
             />
             <label className="label">Password</label>
             <input
               name="password"
+              required
               type="password"
               className="input w-full bg-white"
               placeholder="Password"
@@ -64,7 +90,10 @@ const Login = () => {
           </form>
           <div className="divider w-[350px] mx-auto">OR</div>
           <div className="w-[350px]">
-            <button className="btn btn-outline btn-primary w-full">
+            <button
+              onClick={handleGoogleLogin}
+              className="btn btn-outline btn-primary w-full"
+            >
               <FaGoogle></FaGoogle> Login with Google
             </button>
           </div>
@@ -72,6 +101,7 @@ const Login = () => {
             <p className="">
               Dont Have An Account ?{" "}
               <Link
+                state={location.state}
                 to={"/register"}
                 className="text-blue-600 hover:cursor-pointer hover:underline"
               >

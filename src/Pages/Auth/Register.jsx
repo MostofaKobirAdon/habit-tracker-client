@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const location = useLocation();
   const [error, setError] = useState("");
-  const { createUser, setUser, updateUser } = useContext(AuthContext);
+  const { createUser, setUser, updateUser, googleSignIn } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const lowercasePattern = /[a-z]/;
   const uppercasePattern = /[A-Z]/;
@@ -21,10 +24,13 @@ const Register = () => {
 
     if (!lengthPattern.test(password)) {
       setError("Password must be at least 6 characters");
+      return;
     } else if (!lowercasePattern.test(password)) {
       setError("Password must have a Lowercase letter");
+      return;
     } else if (!uppercasePattern.test(password)) {
       setError("Password must have an Uppercase letter");
+      return;
     } else {
       setError("");
     }
@@ -38,19 +44,59 @@ const Register = () => {
         };
         updateUser(updatedInfo)
           .then(() => {
-            setUser(...user, ...updatedInfo);
+            setUser({ ...user, ...updatedInfo });
             toast.success("created account successfully");
-            navigate("/");
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: `Logged in successfully`,
+              showConfirmButton: false,
+              timer: 2500,
+            });
+            navigate(`${location.state || "/"}`);
           })
           .catch((err) => {
-            toast.error(err.message);
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              title: `${err.message}`,
+              showConfirmButton: false,
+              timer: 2500,
+            });
           });
       })
       .catch((err) => {
-        toast.error(err.message);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 2500,
+        });
       });
-
-    console.log(name, email, photoURL, password);
+  };
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `Logged in successfully`,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        navigate(`${location.state || "/"}`);
+      })
+      .catch((err) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      });
   };
   return (
     <div className="bg-base-100 pb-15 pt-30">
@@ -63,6 +109,7 @@ const Register = () => {
             <label className="label">Name</label>
             <input
               name="name"
+              required
               type="text"
               className="input  w-full bg-white"
               placeholder="Name"
@@ -70,6 +117,7 @@ const Register = () => {
             <label className="label">Email</label>
             <input
               name="email"
+              required
               type="email"
               className="input  w-full bg-white"
               placeholder="Email"
@@ -77,6 +125,7 @@ const Register = () => {
             <label className="label">PhotoURL</label>
             <input
               name="photoURL"
+              required
               type="text"
               className="input  w-full bg-white"
               placeholder="PhotoURL"
@@ -84,6 +133,7 @@ const Register = () => {
             <label className="label">Password</label>
             <input
               name="password"
+              required
               type="password"
               className="input w-full bg-white"
               placeholder="Password"
@@ -95,7 +145,10 @@ const Register = () => {
           </form>
           <div className="divider w-[350px] mx-auto">OR</div>
           <div className="w-[350px]">
-            <button className="btn btn-outline btn-primary w-full">
+            <button
+              onClick={handleGoogleLogin}
+              className="btn btn-outline btn-primary w-full"
+            >
               <FaGoogle></FaGoogle> Sign Up with Google
             </button>
           </div>
@@ -103,6 +156,7 @@ const Register = () => {
             <p className="">
               Already Have An Account ?{" "}
               <Link
+                state={location.state}
                 to={"/login"}
                 className="text-blue-600 hover:cursor-pointer hover:underline"
               >

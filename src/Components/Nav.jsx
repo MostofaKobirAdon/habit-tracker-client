@@ -22,7 +22,7 @@ const Nav = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Logged out successfully",
+          title: "Signed out successfully",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -75,7 +75,7 @@ const Nav = () => {
             {links}
           </ul>
         </div>
-        <div className="navbar-end gap-2">
+        <div className="navbar-end ">
           {user ? (
             <div className="dropdown dropdown-end">
               <div
@@ -104,7 +104,7 @@ const Nav = () => {
               </div>
             </div>
           ) : (
-            <div className="">
+            <div className="flex gap-2">
               <Link
                 to={"/login"}
                 className="btn btn-primary btn-outline hover:text-white"
