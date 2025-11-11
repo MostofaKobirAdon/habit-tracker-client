@@ -27,6 +27,7 @@ const AddHabit = () => {
     axios
       .post(`${import.meta.env.VITE_API_URL}/habits`, newHabit)
       .then((data) => {
+        form.reset();
         Swal.fire({
           position: "center",
           icon: "success",
@@ -58,6 +59,7 @@ const AddHabit = () => {
               <div className="form-control">
                 <label className="label">Habit Title</label>
                 <input
+                  required
                   name="title"
                   type="text"
                   className="input input-bordered w-full bg-white"
@@ -68,11 +70,14 @@ const AddHabit = () => {
               <div className="form-control">
                 <label className="label">Category</label>
                 <select
+                  required
                   name="category"
-                  defaultValue="Select Category"
+                  defaultValue=""
                   className="select select-bordered w-full bg-white"
                 >
-                  <option disabled>Select Category</option>
+                  <option disabled hidden value={""}>
+                    Select Category
+                  </option>
                   <option>Morning</option>
                   <option>Work</option>
                   <option>Fitness</option>
@@ -109,6 +114,7 @@ const AddHabit = () => {
             <div className="form-control">
               <label className="label">Description</label>
               <textarea
+                required
                 name="description"
                 className="textarea textarea-bordered w-full bg-white h-28"
                 placeholder="Write a short description of your habit..."
@@ -119,6 +125,7 @@ const AddHabit = () => {
               <div className="form-control">
                 <label className="label">Reminder Time</label>
                 <input
+                  required
                   type="time"
                   name="reminderTime"
                   className="input input-bordered bg-white w-full"
@@ -128,6 +135,7 @@ const AddHabit = () => {
               <div className="form-control">
                 <label className="label">Upload Image</label>
                 <input
+                  required
                   name="image"
                   type="text"
                   placeholder="Add an image related to your habit"

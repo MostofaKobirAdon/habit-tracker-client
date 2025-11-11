@@ -13,6 +13,9 @@ const Nav = () => {
       <NavLink to={"add-habit"} className="hover:cursor-pointer">
         Add Habit
       </NavLink>
+      <NavLink to={"habits"} className="hover:cursor-pointer">
+        Public Habits
+      </NavLink>
     </>
   );
 

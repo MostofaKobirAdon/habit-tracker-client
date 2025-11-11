@@ -1,7 +1,7 @@
 import React from "react";
 
 const Card = ({ data }) => {
-  const { title, description, creator_name } = data;
+  const { title, description, creator_name, image } = data;
   const shortDescription = (text) => {
     if (text.length <= 74) {
       return text;
@@ -9,9 +9,9 @@ const Card = ({ data }) => {
     return text.slice(0, 90) + " ...";
   };
   return (
-    <div className="shadow-[0px_0px_10px_1px_#757575] rounded-xl  brightness-99 bg-base-200 h-80 relative">
+    <div className="shadow-[0px_0px_8px_1px_#757575] hover:scale-101  rounded-xl  brightness-99 bg-base-200 h-80 relative">
       <img
-        src="https://i.ibb.co.com/1f38jjsW/harsh-gupta-n-VDB1-IGq64s-unsplash.jpg"
+        src={image}
         alt=""
         className="h-full w-full rounded-xl object-cover"
       />
