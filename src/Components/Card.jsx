@@ -11,7 +11,7 @@ const Card = ({ data }) => {
     return text.slice(0, 90) + " ...";
   };
   return (
-    <div className="shadow-[0px_0px_8px_1px_#757575] hover:scale-101  rounded-xl  brightness-99 bg-base-200 h-80 relative">
+    <div className=" shadow-[0px_0px_8px_1px_#757575] hover:scale-101  rounded-xl  brightness-99 bg-base-200 h-80 relative">
       <img
         src={image}
         alt=""

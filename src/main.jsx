@@ -13,6 +13,7 @@ import AuthProvider from "./Context/AuthProvider.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
 import PublicHabits from "./Pages/PublicHabits.jsx";
 import HabitDetails from "./Pages/HabitDetails.jsx";
+import MyHabits from "./Pages/MyHabits.jsx";
 
 // router-----
 const router = createBrowserRouter([
@@ -49,6 +50,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <HabitDetails></HabitDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-habits",
+        element: (
+          <PrivateRoute>
+            <MyHabits></MyHabits>
           </PrivateRoute>
         ),
       },

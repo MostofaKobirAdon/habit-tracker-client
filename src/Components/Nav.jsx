@@ -7,13 +7,28 @@ const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
   const links = (
     <>
-      <NavLink to={"/"} className="hover:cursor-pointer">
+      <NavLink
+        to={"/"}
+        className="hover:cursor-pointer text-[16px] font-medium hover:scale-101 hover:text-primary"
+      >
         Home
       </NavLink>
-      <NavLink to={"add-habit"} className="hover:cursor-pointer">
+      <NavLink
+        to={"/add-habit"}
+        className="hover:cursor-pointer text-[16px] font-medium hover:scale-101 hover:text-primary"
+      >
         Add Habit
       </NavLink>
-      <NavLink to={"habits"} className="hover:cursor-pointer">
+      <NavLink
+        to={"/my-habits"}
+        className="hover:cursor-pointer text-[16px] font-medium hover:scale-101 hover:text-primary"
+      >
+        My Habit
+      </NavLink>
+      <NavLink
+        to={"/habits"}
+        className="hover:cursor-pointer text-[16px] font-medium hover:scale-101 hover:text-primary"
+      >
         Public Habits
       </NavLink>
     </>
