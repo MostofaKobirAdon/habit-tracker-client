@@ -1,9 +1,7 @@
-import React, { use } from "react";
+import React from "react";
 import Card from "../Card";
 
-const RecentHabits = ({ latestHabitPromise }) => {
-  const latestHabits = use(latestHabitPromise).data;
-  console.log(latestHabits);
+const RecentHabits = ({ latestHabits }) => {
   return (
     <div>
       <div className="max-w-6xl mx-auto mt-16 mb-10">

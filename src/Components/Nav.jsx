@@ -89,7 +89,7 @@ const Nav = () => {
                 <img
                   src={user?.photoURL}
                   alt=""
-                  className="h-full w-full rounded-full border-2 border-primary"
+                  className="h-full w-full rounded-full border-2 object-cover overflow-hidden border-primary"
                 />
               </div>
               <div

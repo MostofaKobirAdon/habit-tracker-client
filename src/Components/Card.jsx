@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Card = ({ data }) => {
-  const { title, description, creator_name, image } = data;
+  const { title, description, creator_name, image, _id } = data;
+
   const shortDescription = (text) => {
     if (text.length <= 74) {
       return text;
@@ -25,7 +27,9 @@ const Card = ({ data }) => {
             <span className="font-bold">Creator : {creator_name}</span>
             {}
           </p>
-          <button className="btn-primary btn w-full mt-2">View Details</button>
+          <Link to={`/habits/${_id}`} className="btn-primary btn w-full mt-2">
+            View Details
+          </Link>
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import Register from "./Pages/Auth/Register.jsx";
 import AuthProvider from "./Context/AuthProvider.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
 import PublicHabits from "./Pages/PublicHabits.jsx";
+import HabitDetails from "./Pages/HabitDetails.jsx";
 
 // router-----
 const router = createBrowserRouter([
@@ -42,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "/habits",
         element: <PublicHabits></PublicHabits>,
+      },
+      {
+        path: "/habits/:id",
+        element: (
+          <PrivateRoute>
+            <HabitDetails></HabitDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },

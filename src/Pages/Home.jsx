@@ -1,16 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Banner from "../Components/Home/Banner";
 import RecentHabits from "../Components/Home/RecentHabits";
 import WhyBuildHabits from "../Components/Home/WhyBuildHabits";
 import Feedback from "../Components/Home/Feedback";
 import AuthContext from "../Context/AuthContext";
 import axios from "axios";
+import Swal from "sweetalert2";
 
-const latestHabitPromise = axios(
-  `${import.meta.env.VITE_API_URL}/latest-habits`
-);
 const Home = () => {
   const { loading } = useContext(AuthContext);
+  const [latestHabits, setLatestHabits] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/latest-habits`)
+      .then((data) => setLatestHabits(data.data))
+      .catch((err) =>
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      );
+  }, []);
+
   return (
     <div className="bg-base-100 ">
       {loading ? (
@@ -21,7 +36,7 @@ const Home = () => {
         <div className="">
           <Banner></Banner>
 
-          <RecentHabits latestHabitPromise={latestHabitPromise}></RecentHabits>
+          <RecentHabits latestHabits={latestHabits}></RecentHabits>
           <WhyBuildHabits></WhyBuildHabits>
           <Feedback></Feedback>
         </div>
