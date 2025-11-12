@@ -48,7 +48,7 @@ const AddHabit = () => {
   };
   return (
     <div className="bg-base-100 min-h-screen py-b py-26">
-      <div className="max-w-6xl mx-auto">
+      <div className=" md:max-w-6xl max-w-11/12 mx-auto">
         <h1 className="text-center mb-8 text-3xl font-semibold text-blue-800">
           Add a Habit
         </h1>
@@ -56,7 +56,7 @@ const AddHabit = () => {
         <div className="bg-blue-50 shadow-xl rounded-2xl p-10">
           <form onSubmit={handleAddHabit} className="space-y-8">
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="form-control">
+              <div className=" ">
                 <label className="label">Habit Title</label>
                 <input
                   required
@@ -67,7 +67,7 @@ const AddHabit = () => {
                 />
               </div>
 
-              <div className="form-control">
+              <div className=" ">
                 <label className="label">Category</label>
                 <select
                   required
@@ -88,7 +88,7 @@ const AddHabit = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="form-control">
+              <div className=" ">
                 <label className="label">User Name</label>
                 <input
                   value={user.displayName}
@@ -99,7 +99,7 @@ const AddHabit = () => {
                 />
               </div>
 
-              <div className="form-control">
+              <div className=" ">
                 <label className="label">User Email</label>
                 <input
                   value={user.email}
@@ -111,18 +111,18 @@ const AddHabit = () => {
               </div>
             </div>
 
-            <div className="form-control">
+            <div className="">
               <label className="label">Description</label>
               <textarea
                 required
                 name="description"
                 className="textarea textarea-bordered w-full bg-white h-28"
-                placeholder="Write a short description of your habit..."
+                placeholder="Write a short description of your habit"
               ></textarea>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="form-control">
+              <div className="">
                 <label className="label">Reminder Time</label>
                 <input
                   required
@@ -132,7 +132,7 @@ const AddHabit = () => {
                 />
               </div>
 
-              <div className="form-control">
+              <div className=" ">
                 <label className="label">Upload Image</label>
                 <input
                   required

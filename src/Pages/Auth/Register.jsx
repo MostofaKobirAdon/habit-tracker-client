@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import start from "../../assets/starting.jpg";
 
 const Register = () => {
   const location = useLocation();
@@ -100,11 +101,23 @@ const Register = () => {
   };
   return (
     <div className="bg-base-100 pb-15 pt-30">
-      <div className="max-w-lg mx-auto">
-        <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
-          Sign Up To Your Account
-        </h1>
-        <div className="card-body shadow-lg bg-blue-50 rounded-2xl flex items-center py-10 justify-center">
+      <div className="max-w-11/12 md:max-w-6xl  mx-auto md:h-150 flex flex-col md:flex-row shadow-lg bg-blue-50 rounded-2xl ">
+        <div className="relative">
+          <img
+            src={start}
+            alt=""
+            className="w-150 h-70 md:h-full rounded-t-2xl md:rounded-l-2xl  object-cover overflow-hidden"
+          />
+          <div className="absolute text-center rounded-tl-2xl bg-linear-to-t from-transparent to-white/70 text-black top-0 left-0 bottom-0 right-0">
+            <h1 className="text-2xl md:text-4xl font-bold">
+              Start Building Your Best Habits Today.
+            </h1>
+          </div>
+        </div>
+        <div className="card-body  flex items-center py-10 justify-center">
+          <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
+            Sign Up To Your Account
+          </h1>
           <form onSubmit={handleSignUp} className="fieldset w-[350px] ">
             <label className="label">Name</label>
             <input

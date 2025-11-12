@@ -57,7 +57,7 @@ const Nav = () => {
   };
   return (
     <div className="bg-secondary/90 shadow-sm fixed z-10 left-0 right-0 top-0">
-      <div className="navbar  max-w-6xl mx-auto">
+      <div className="navbar max-w-11/12  md: md:max-w-6xl max-w-11/12  mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -84,7 +84,7 @@ const Nav = () => {
               {links}
             </ul>
           </div>
-          <h1 className=" text-xl">
+          <h1 className="text-lg md:text-xl">
             <span className="font-bold text-primary">HABIT</span> TRACKER
           </h1>
         </div>

@@ -34,14 +34,14 @@ const HabitDetails = () => {
           <span className="loading text-black loading-bars loading-xl"></span>
         </div>
       ) : (
-        <div className=" bg-primary/20 p-4 shadow-2xl rounded-2xl max-w-6xl mx-auto">
-          <div className="w-full flex gap-9">
+        <div className=" bg-primary/20 p-4 shadow-2xl rounded-2xl  md:max-w-6xl max-w-11/12 mx-auto">
+          <div className="w-full md:flex gap-9">
             <img
               src={image}
               alt=""
-              className="w-1/3 rounded-lg h-110 object-cover overflow-hidden"
+              className="md:w-1/3 w-full rounded-lg h-110 object-cover overflow-hidden"
             />
-            <div className="w-2/3">
+            <div className="md:w-2/3 w-full">
               <h1 className="text-3xl font-bold">{title}</h1>
               <div className="flex items-center gap-3 my-2">
                 <p className="text-black">
@@ -73,7 +73,7 @@ const HabitDetails = () => {
                 <span className="font-semibold">Progress:</span>
                 <br />
                 <progress
-                  className="progress mt-2 rounded-full progress-primary h-5 w-120"
+                  className="progress mt-2 rounded-full progress-primary h-5 w-full md:w-120"
                   value={15}
                   max="30"
                 ></progress>

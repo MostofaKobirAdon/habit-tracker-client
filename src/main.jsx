@@ -15,7 +15,6 @@ import PublicHabits from "./Pages/PublicHabits.jsx";
 import HabitDetails from "./Pages/HabitDetails.jsx";
 import MyHabits from "./Pages/MyHabits.jsx";
 
-// router-----
 const router = createBrowserRouter([
   {
     path: "/",

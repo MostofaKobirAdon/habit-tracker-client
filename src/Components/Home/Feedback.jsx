@@ -11,8 +11,8 @@ import user3 from "../../assets/user3.jpeg";
 import user4 from "../../assets/user4.jpeg";
 const Feedback = () => {
   return (
-    <section className="pt-4  bg-base-100 w-full mb-10">
-      <div className="text-center max-w-2xl mx-auto mb-10">
+    <div className="pt-4  bg-base-100 w-full mb-10">
+      <div className="text-center md: md:max-w-6xl max-w-11/12 max-w-11/12 mx-auto mb-10">
         <h2 className="text-3xl font-semibold text-base-content">
           What Our Clients Say
         </h2>
@@ -22,7 +22,7 @@ const Feedback = () => {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 h-[324px]">
+      <div className="md: md:max-w-6xl max-w-11/12 max-w-11/12 mx-auto px-4 h-[324px]">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           navigation
@@ -107,7 +107,7 @@ const Feedback = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-    </section>
+    </div>
   );
 };
 

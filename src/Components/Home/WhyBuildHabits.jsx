@@ -5,9 +5,9 @@ import { RxRocket } from "react-icons/rx";
 
 const WhyBuildHabits = () => {
   return (
-    <div className="mt-20 mb-20">
+    <div className="mt-20 mb-20 ">
       <div className="">
-        <div className="text-center max-w-6xl mx-auto">
+        <div className="text-center  md:max-w-6xl max-w-11/12 mx-auto">
           <h1 className="  text-2xl text-base-content font-semibold">
             Why Build a Habit?
           </h1>
@@ -17,7 +17,7 @@ const WhyBuildHabits = () => {
           </p>
         </div>
         <div className="bg-gradient-to-b text-gray-800 py-10 from-blue-base  to-sky-200">
-          <div className="max-w-6xl mx-auto grid grid-cols-4 gap-6">
+          <div className=" md:max-w-6xl max-w-11/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="border-2 rounded-3xl p-4">
               <div className="flex items-center justify-center">
                 <LuBrain size={90} />

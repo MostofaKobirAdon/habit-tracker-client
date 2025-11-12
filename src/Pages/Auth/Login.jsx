@@ -3,6 +3,7 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import AuthContext from "../../Context/AuthContext";
 import Swal from "sweetalert2";
+import goals from "../../assets/goals.jpg";
 
 const Login = () => {
   const location = useLocation();
@@ -59,11 +60,23 @@ const Login = () => {
   };
   return (
     <div className="bg-base-100 pb-15 pt-30">
-      <div className="max-w-lg mx-auto">
-        <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
-          Log In To Your Account
-        </h1>
-        <div className="card-body shadow-lg bg-blue-50 rounded-2xl flex items-center py-10 justify-center">
+      <div className="max-w-11/12 md:max-w-6xl mx-auto flex flex-col md:flex-row bg-blue-50 shadow-lg rounded-2xl md:h-[483px]">
+        <div className="relative">
+          <img
+            src={goals}
+            alt=""
+            className="w-150 md:rounded-l-2xl rounded-t-2xl h-full object-cover overflow-hidden"
+          />
+          <div className="absolute top-0 text-white p-4">
+            <h1 className="text-2xl md:text-4xl font-bold">
+              Build Your Best Life. <br /> One Habit at a Time.
+            </h1>
+          </div>
+        </div>
+        <div className="card-body   rounded-2xl flex items-center py-10 justify-center">
+          <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
+            Log In To Your Account
+          </h1>
           <form onSubmit={handleLogin} className="fieldset w-[350px] ">
             <label className="label">Email</label>
             <input

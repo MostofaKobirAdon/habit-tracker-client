@@ -18,12 +18,12 @@ const Banner = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop
-        className="w-full h-[440px] shadow-lg"
+        className="w-full md:h-[440px] h-200 shadow-lg"
       >
         <SwiperSlide className="h-full ">
           <div className="bg-blue-50 pb-15 pt-30 h-full">
-            <div className="flex flex-col md:flex-row items-center justify-between h-full mx-auto max-w-6xl  ">
-              <div className="md:w-1/2 mb-6 md:mb-0">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto  md:max-w-6xl max-w-11/12  ">
+              <div className="md:w-1/2 mb-6 md:mb-0 mt-3 md:mt-0">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 text-blue-900">
                   Build Better Habits, One Day at a Time
                 </h2>
@@ -46,8 +46,8 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide className="h-full ">
           <div className="bg-gray-50 pb-15 pt-30 h-full">
-            <div className="flex flex-col md:flex-row items-center justify-between h-full mx-auto max-w-6xl  ">
-              <div className="md:w-1/2 mb-6 md:mb-0">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto  md:max-w-6xl max-w-11/12  ">
+              <div className="md:w-1/2 mb-6 md:mb-0 mt-3 md:mt-0">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 text-teal-800">
                   Easily Add Your Daily Habits
                 </h2>
@@ -70,8 +70,8 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide className="h-full ">
           <div className="bg-green-50 pb-15 pt-30 h-full">
-            <div className="flex flex-col md:flex-row items-center justify-between h-full mx-auto max-w-6xl  ">
-              <div className="md:w-1/2 mb-6 md:mb-0">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto  md:max-w-6xl max-w-11/12  ">
+              <div className="md:w-1/2 mb-6 md:mb-0 mt-3 md:mt-0">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 text-teal-800">
                   See Your Growth Over Time
                 </h2>
@@ -94,8 +94,8 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide className="h-full ">
           <div className="bg-yellow-50 pb-15 pt-30 h-full">
-            <div className="flex flex-col md:flex-row items-center justify-between h-full mx-auto max-w-6xl  ">
-              <div className="md:w-1/2 mb-6 md:mb-0">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto  md:max-w-6xl max-w-11/12  ">
+              <div className="md:w-1/2 mb-6 md:mb-0 ">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 text-orange-400">
                   Never Miss a Day
                 </h2>
@@ -116,32 +116,6 @@ const Banner = () => {
             </div>
           </div>
         </SwiperSlide>
-
-        {/* 
-
-        
-        <SwiperSlide className="h-full">
-          <div className="flex flex-col md:flex-row items-center justify-between h-full px-6 md:px-16 bg-yellow-50">
-            <div className="md:w-1/2 mb-6 md:mb-0">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-orange-500">
-                Never Miss a Day
-              </h2>
-              <p className="text-lg md:text-xl mb-6 text-gray-700">
-                Reminders and notifications to keep you on track.
-              </p>
-              <button className="px-6 py-3 rounded-lg text-white font-semibold bg-yellow-400 hover:bg-yellow-500">
-                Start Tracking
-              </button>
-            </div>
-            <div className="md:w-1/2 flex justify-center">
-              <img
-                src={slide1}
-                alt="Slide 4"
-                className="w-3/4 md:w-full object-contain rounded-lg"
-              />
-            </div>
-          </div>
-        </SwiperSlide> */}
       </Swiper>
     </div>
   );
