@@ -101,12 +101,12 @@ const Register = () => {
   };
   return (
     <div className="bg-base-100 pb-15 pt-30">
-      <div className="max-w-11/12 md:max-w-6xl  mx-auto md:h-150 flex flex-col md:flex-row shadow-lg bg-blue-50 rounded-2xl ">
-        <div className="relative">
+      <div className="max-w-11/12  lg:max-w-6xl rounded-t-2xl md:max-w-[700px]  mx-auto lg:h-150 flex flex-col lg:flex-row shadow-lg bg-blue-50 rounded-2xl ">
+        <div className="relative md:h-72">
           <img
             src={start}
             alt=""
-            className="w-150 h-70 md:h-full rounded-t-2xl md:rounded-l-2xl  object-cover overflow-hidden"
+            className="lg:w-150 md:w-full  lg:h-70 md:h-full rounded-t-2xl lg:rounded-l-2xl  object-cover overflow-hidden"
           />
           <div className="absolute text-center rounded-tl-2xl bg-linear-to-t from-transparent to-white/70 text-black top-0 left-0 bottom-0 right-0">
             <h1 className="text-2xl md:text-4xl font-bold">
@@ -118,7 +118,10 @@ const Register = () => {
           <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
             Sign Up To Your Account
           </h1>
-          <form onSubmit={handleSignUp} className="fieldset w-[350px] ">
+          <form
+            onSubmit={handleSignUp}
+            className="fieldset w-full lg:w-[350px] "
+          >
             <label className="label">Name</label>
             <input
               name="name"
@@ -156,16 +159,16 @@ const Register = () => {
               Sign Up
             </button>
           </form>
-          <div className="divider w-[350px] mx-auto">OR</div>
-          <div className="w-[350px]">
+          <div className="divider md:w-full lg:w-[350px] mx-auto">OR</div>
+          <div className="w-full lg:w-[350px]">
             <button
               onClick={handleGoogleLogin}
-              className="btn btn-outline btn-primary w-full"
+              className="btn btn-outline  btn-primary w-full"
             >
               <FaGoogle></FaGoogle> Sign Up with Google
             </button>
           </div>
-          <div className="w-[350px] mx-auto text-[13px]">
+          <div className="md:w-full lg:w-[350px] mx-auto text-[13px]">
             <p className="">
               Already Have An Account ?{" "}
               <Link

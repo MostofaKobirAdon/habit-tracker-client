@@ -12,7 +12,7 @@ import user4 from "../../assets/user4.jpeg";
 const Feedback = () => {
   return (
     <div className="pt-4  bg-base-100 w-full mb-10">
-      <div className="text-center md: md:max-w-6xl max-w-11/12 max-w-11/12 mx-auto mb-10">
+      <div className="text-center md:  lg:max-w-6xl md:max-w-[700px]  max-w-11/12 mx-auto mb-10">
         <h2 className="text-3xl font-semibold text-base-content">
           What Our Clients Say
         </h2>
@@ -22,7 +22,7 @@ const Feedback = () => {
         </p>
       </div>
 
-      <div className="md: md:max-w-6xl max-w-11/12 max-w-11/12 mx-auto px-4 h-[324px]">
+      <div className="md:  lg:max-w-6xl md:max-w-[700px]  max-w-11/12 mx-auto px-4 h-[324px]">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           navigation
@@ -33,7 +33,6 @@ const Feedback = () => {
           slidesPerView={3}
           breakpoints={{
             320: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
           className="h-full"

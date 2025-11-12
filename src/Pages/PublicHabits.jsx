@@ -30,7 +30,7 @@ const PublicHabits = () => {
             <span className="loading text-black loading-bars loading-xl"></span>
           </div>
         ) : (
-          <div className=" md:max-w-6xl max-w-11/12 mx-auto mt-20 mb-10">
+          <div className="  lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto mt-20 mb-10">
             <div className="text-center">
               <h1 className="  text-2xl text-base-content font-semibold">
                 All Public Habits
@@ -39,7 +39,7 @@ const PublicHabits = () => {
                 Explore the habits people are building every day.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-15 mt-8">
+            <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-15 mt-8">
               {habits.map((habit) => (
                 <Card key={habit._id} data={habit}></Card>
               ))}

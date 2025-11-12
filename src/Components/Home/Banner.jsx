@@ -22,7 +22,7 @@ const Banner = () => {
       >
         <SwiperSlide className="h-full ">
           <div className="bg-blue-50 pb-15 pt-30 h-full">
-            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto  md:max-w-6xl max-w-11/12  ">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto   lg:max-w-6xl md:max-w-[700px] max-w-11/12  ">
               <div className="md:w-1/2 mb-6 md:mb-0 mt-3 md:mt-0">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 text-blue-900">
                   Build Better Habits, One Day at a Time
@@ -46,7 +46,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide className="h-full ">
           <div className="bg-gray-50 pb-15 pt-30 h-full">
-            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto  md:max-w-6xl max-w-11/12  ">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto   lg:max-w-6xl md:max-w-[700px] max-w-11/12  ">
               <div className="md:w-1/2 mb-6 md:mb-0 mt-3 md:mt-0">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 text-teal-800">
                   Easily Add Your Daily Habits
@@ -70,7 +70,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide className="h-full ">
           <div className="bg-green-50 pb-15 pt-30 h-full">
-            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto  md:max-w-6xl max-w-11/12  ">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto   lg:max-w-6xl md:max-w-[700px] max-w-11/12  ">
               <div className="md:w-1/2 mb-6 md:mb-0 mt-3 md:mt-0">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 text-teal-800">
                   See Your Growth Over Time
@@ -94,7 +94,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide className="h-full ">
           <div className="bg-yellow-50 pb-15 pt-30 h-full">
-            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto  md:max-w-6xl max-w-11/12  ">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between h-full mx-auto   lg:max-w-6xl md:max-w-[700px] max-w-11/12  ">
               <div className="md:w-1/2 mb-6 md:mb-0 ">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 text-orange-400">
                   Never Miss a Day

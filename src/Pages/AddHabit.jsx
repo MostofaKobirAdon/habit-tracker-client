@@ -48,7 +48,7 @@ const AddHabit = () => {
   };
   return (
     <div className="bg-base-100 min-h-screen py-b py-26">
-      <div className=" md:max-w-6xl max-w-11/12 mx-auto">
+      <div className="  lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto">
         <h1 className="text-center mb-8 text-3xl font-semibold text-blue-800">
           Add a Habit
         </h1>

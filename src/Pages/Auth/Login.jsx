@@ -60,16 +60,16 @@ const Login = () => {
   };
   return (
     <div className="bg-base-100 pb-15 pt-30">
-      <div className="max-w-11/12 md:max-w-6xl mx-auto flex flex-col md:flex-row bg-blue-50 shadow-lg rounded-2xl md:h-[483px]">
-        <div className="relative">
+      <div className="max-w-11/12  lg:max-w-6xl md:max-w-[700px] mx-auto flex flex-col lg:flex-row bg-blue-50 shadow-lg rounded-2xl lg:h-[483px]">
+        <div className="relative md:h-65">
           <img
             src={goals}
             alt=""
-            className="w-150 md:rounded-l-2xl rounded-t-2xl h-full object-cover overflow-hidden"
+            className="lg:w-150  md:w-full  lg:rounded-l-2xl rounded-t-2xl h-full lg:h-full object-cover overflow-hidden"
           />
           <div className="absolute top-0 text-white p-4">
-            <h1 className="text-2xl md:text-4xl font-bold">
-              Build Your Best Life. <br /> One Habit at a Time.
+            <h1 className="text-2xl  lg:text-4xl font-bold">
+              Build Your Best Life. One Habit at a Time.
             </h1>
           </div>
         </div>
@@ -77,7 +77,7 @@ const Login = () => {
           <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
             Log In To Your Account
           </h1>
-          <form onSubmit={handleLogin} className="fieldset w-[350px] ">
+          <form onSubmit={handleLogin} className="fieldset w-full ">
             <label className="label">Email</label>
             <input
               type="email"
@@ -101,8 +101,8 @@ const Login = () => {
               Login
             </button>
           </form>
-          <div className="divider w-[350px] mx-auto">OR</div>
-          <div className="w-[350px]">
+          <div className="divider w-full lg:w-[350px] mx-auto">OR</div>
+          <div className="w-full lg:w-[350px]">
             <button
               onClick={handleGoogleLogin}
               className="btn btn-outline btn-primary w-full"

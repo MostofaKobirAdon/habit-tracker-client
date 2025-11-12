@@ -63,7 +63,7 @@ const MyHabits = () => {
 
   return (
     <div>
-      <div className="  md:max-w-6xl max-w-11/12 mx-auto pt-28 pb-16">
+      <div className="   lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto pt-28 pb-16">
         <div className="">
           {!loading ? (
             <div className="">
