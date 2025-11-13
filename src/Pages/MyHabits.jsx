@@ -59,9 +59,82 @@ const MyHabits = () => {
     modalRef.current.showModal();
   };
 
-  <div className="flex items-center justify-center min-h-[87vh] ">
-    <span className="loading text-black loading-bars loading-xl"></span>
-  </div>;
+  const handleUpdateHabit = (e) => {
+    modalRef.current.close();
+    setLoading(true);
+    e.preventDefault();
+    const form = e.target;
+    const title = form.title.value;
+    const category = form.category.value;
+    const description = form.description.value;
+    const reminder_time = form.reminderTime.value;
+    const image = form.image.value;
+
+    // _id
+    // 69148ffff9de4012189cc349
+    // title
+    // "Recite Holy Quran"
+    // category
+    // "Morning"
+    // description
+    // "Reciting the Quran is a spiritually enriching and calming activity tha…"
+    // reminder_time
+    // "06:47"
+    // image
+    // "https://i.ibb.co.com/QF9svFnY/images-2.jpg"
+    // creator_name
+    // "Belal Hossain"
+    // creator_email
+    // "hossainbellal457@gmail.com"
+    // createdAt
+    // 2025-11-12T13:47:43.457+00:00
+
+    // completionHistory
+    // Array (empty)
+
+    const updatedHabit = {
+      title,
+      category,
+      description,
+      reminder_time,
+      image,
+      creator_name: selectedHabit.creator_name,
+
+      creator_email: selectedHabit.creator_email,
+      createdAt: selectedHabit.createdAt,
+      completionHistory: selectedHabit.completionHistory,
+    };
+    console.log(updatedHabit);
+    axios
+      .patch(
+        `${import.meta.env.VITE_API_URL}/habits/${selectedHabit._id}`,
+        updatedHabit
+      )
+      .then((data) => {
+        const allData = habits.filter(
+          (habit) => habit._id !== selectedHabit._id
+        );
+        setHabits([...allData, { ...updatedHabit, _id: selectedHabit._id }]);
+        console.log(data);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Updated Habit Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .finally(() => setLoading(false));
+  };
 
   return (
     <div>
@@ -87,7 +160,7 @@ const MyHabits = () => {
                     </thead>
                     <tbody>
                       {habits.map((habit) => (
-                        <tr>
+                        <tr key={habit._id}>
                           <th>1</th>
                           <td>{habit.title}</td>
                           <td>
@@ -142,7 +215,7 @@ const MyHabits = () => {
           <div className="modal-box max-w-3xl ">
             <h3 className="font-bold text-xl text-center">Update Your Habit</h3>
             <div className="">
-              <form className="">
+              <form onSubmit={handleUpdateHabit} className="">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className=" ">
                     <label className="label">Habit Title</label>
@@ -232,7 +305,10 @@ const MyHabits = () => {
                     />
                   </div>
                 </div>
-                <button className="btn btn-outline btn-primary mt-2">
+                <button
+                  type="submit"
+                  className="btn btn-outline btn-primary mt-2"
+                >
                   Update Habit
                 </button>
               </form>
