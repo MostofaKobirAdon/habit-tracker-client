@@ -16,7 +16,7 @@ const WhyBuildHabits = () => {
             of consistency and growth
           </p>
         </div>
-        <div className="bg-gradient-to-b text-gray-800 py-10 from-blue-base  to-sky-200">
+        <div className="bg-gradient-to-b text-gray-800 py-10 from-base-100  to-sky-200">
           <div className="  lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-6">
             <div className="border-2 rounded-3xl p-4">
               <div className="flex items-center justify-center">

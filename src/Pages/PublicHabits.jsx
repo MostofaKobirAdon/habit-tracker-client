@@ -30,6 +30,17 @@ const PublicHabits = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  const handleFilter = (e) => {
+    const value = e.target.value;
+    setFilterValue(value);
+    if (!value) {
+      setFilteredHabits(habits);
+      return;
+    }
+    const filtered = habits.filter((habit) => habit.category === value);
+    setFilteredHabits(filtered);
+  };
+
   // search handler
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase().trim();
@@ -44,16 +55,6 @@ const PublicHabits = () => {
   };
 
   // filter by category
-  const handleFilter = (e) => {
-    const value = e.target.value;
-    setFilterValue(value);
-    if (!value) {
-      setFilteredHabits(habits);
-      return;
-    }
-    const filtered = habits.filter((habit) => habit.category === value);
-    setFilteredHabits(filtered);
-  };
 
   return (
     <div>

@@ -7,6 +7,7 @@ import { data } from "react-router";
 const MyHabits = () => {
   const [habits, setHabits] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedHabit, setSelectedHabit] = useState(null);
   const modalRef = useRef();
   const { user } = useContext(AuthContext);
   useEffect(() => {
@@ -53,7 +54,8 @@ const MyHabits = () => {
     });
   };
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (habit) => {
+    setSelectedHabit(habit);
     modalRef.current.showModal();
   };
 
@@ -108,7 +110,7 @@ const MyHabits = () => {
                                 Delete
                               </button>
                               <button
-                                onClick={handleOpenModal}
+                                onClick={() => handleOpenModal(habit)}
                                 className="btn btn-primary  btn-xs"
                               >
                                 Update
@@ -135,9 +137,9 @@ const MyHabits = () => {
         <dialog
           ref={modalRef}
           id="my_modal_5"
-          className="modal modal-bottom sm:modal-middle"
+          className="modal modal-bottom sm:modal-middle "
         >
-          <div className="modal-box max-w-3xl">
+          <div className="modal-box max-w-3xl ">
             <h3 className="font-bold text-xl text-center">Update Your Habit</h3>
             <div className="">
               <form className="">
@@ -148,6 +150,7 @@ const MyHabits = () => {
                       required
                       name="title"
                       type="text"
+                      defaultValue={selectedHabit?.title}
                       className="input input-bordered w-full bg-white"
                       placeholder="Title"
                     />
@@ -158,7 +161,7 @@ const MyHabits = () => {
                     <select
                       required
                       name="category"
-                      defaultValue=""
+                      defaultValue={selectedHabit?.category}
                       className="select select-bordered w-full bg-white"
                     >
                       <option disabled hidden value={""}>
@@ -172,7 +175,7 @@ const MyHabits = () => {
                     </select>
                   </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-8 mt-2">
+                <div className="grid md:grid-cols-2 gap-8 mt-1">
                   <div className=" ">
                     <label className="label">User Name</label>
                     <input
@@ -195,19 +198,21 @@ const MyHabits = () => {
                     />
                   </div>
                 </div>
-                <div className="mt-2 ">
+                <div className="mt-1 ">
                   <label className="label">Description</label>
                   <textarea
                     required
                     name="description"
+                    defaultValue={selectedHabit?.description}
                     className="textarea textarea-bordered w-full bg-white h-28"
-                    placeholder="Write a short description of your habit..."
+                    placeholder="Update your short description of your habit"
                   ></textarea>
                 </div>
-                <div className="grid md:grid-cols-2 gap-8 mt-2">
+                <div className="grid md:grid-cols-2 gap-8 mt-1">
                   <div className=" ">
                     <label className="label">Reminder Time</label>
                     <input
+                      defaultValue={selectedHabit?.reminder_time}
                       required
                       type="time"
                       name="reminderTime"
@@ -216,17 +221,18 @@ const MyHabits = () => {
                   </div>
 
                   <div className=" ">
-                    <label className="label">Upload Image</label>
+                    <label className="label">Photo URL</label>
                     <input
                       required
                       name="image"
+                      defaultValue={selectedHabit?.image}
                       type="text"
-                      placeholder="Add an image related to your habit"
+                      placeholder="Update your habit image"
                       className="input input-bordered bg-white w-full"
                     />
                   </div>
                 </div>
-                <button className="btn btn-outline btn-primary mt-3">
+                <button className="btn btn-outline btn-primary mt-2">
                   Update Habit
                 </button>
               </form>

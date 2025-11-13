@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import Swal from "sweetalert2";
+import { TbMoodSad } from "react-icons/tb";
 
 const HabitDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showErr, setShowErr] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -14,13 +16,7 @@ const HabitDetails = () => {
       .get(`${import.meta.env.VITE_API_URL}/habits/${id}`)
       .then((data) => setData(data.data))
       .catch((err) => {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: `${err.message}`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        setShowErr(true);
       })
       .finally(() => setLoading(false));
   }, [id]);
@@ -34,55 +30,76 @@ const HabitDetails = () => {
           <span className="loading text-black loading-bars loading-xl"></span>
         </div>
       ) : (
-        <div className=" bg-primary/20 p-4 shadow-2xl rounded-2xl   lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto">
-          <div className="w-full md:flex gap-9">
-            <img
-              src={image}
-              alt=""
-              className="lg:w-1/3 md:w-1/2 w-full rounded-lg h-110 object-cover overflow-hidden"
-            />
-            <div className="md:w-1/2 lg:w-2/3 w-full">
-              <h1 className="text-3xl font-bold">{title}</h1>
-              <div className="flex items-center gap-3 my-2">
-                <p className="text-black">
-                  <span className="font-semibold">Category :</span>
-                </p>
-                <div className="badge badge-primary">{category}</div>
+        <div className="">
+          {showErr ? (
+            <div className="bg-primary/20 p-4 shadow-2xl rounded-2xl py-10  lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto flex flex-col items-center justify-center">
+              <TbMoodSad size={130} />
+              <h1 className="font-bold text-5xl my-2">Oops!</h1>
+              <h2 className="text-2xl font-semibold text-gray-700 mt-0.5">
+                Data Not Found
+              </h2>
+              <div className="md:flex-row flex-col gap-3 flex md:gap-3 mt-3">
+                <Link to="/" className="btn btn-primary w-48  ">
+                  Go to Home
+                </Link>
+                <Link to="/habits" className="btn btn-primary w-48">
+                  Browse Public Habits
+                </Link>
               </div>
-              <div className="border-2  rounded-xl">
-                <div className="border-b border-gray-500 px-1">
-                  <h1 className="font-semibold ">Creator :</h1>
-                </div>
-                <div className="py-1 px-2">
-                  <p className="text-black">
-                    <span className="font-semibold">Name :</span> {creator_name}
-                  </p>
-                  <p className="text-black">
-                    <span className="font-semibold">Emial :</span>{" "}
-                    {creator_email}
-                  </p>
-                </div>
-              </div>
-              <div className="w-full mt-3">
-                <div className="">
-                  <span className="font-semibold">Description :</span>
-                </div>
-                <p className="text-gray-700">{description}</p>
-              </div>
-              <div className="mt-3">
-                <span className="font-semibold">Progress:</span>
-                <br />
-                <progress
-                  className="progress mt-2 rounded-full progress-primary h-5 w-full md:w-80 lg:w-120"
-                  value={15}
-                  max="30"
-                ></progress>
-              </div>
-              <button className="btn btn-primary px-10 mt-4 btn-outline">
-                Mark Complete
-              </button>
             </div>
-          </div>
+          ) : (
+            <div className=" bg-primary/20 p-4 shadow-2xl rounded-2xl   lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto">
+              <div className="w-full md:flex gap-9">
+                <img
+                  src={image}
+                  alt=""
+                  className="lg:w-1/3 md:w-1/2 w-full rounded-lg h-110 object-cover overflow-hidden"
+                />
+                <div className="md:w-1/2 lg:w-2/3 w-full">
+                  <h1 className="text-3xl font-bold">{title}</h1>
+                  <div className="flex items-center gap-3 my-2">
+                    <p className="text-black">
+                      <span className="font-semibold">Category :</span>
+                    </p>
+                    <div className="badge badge-primary">{category}</div>
+                  </div>
+                  <div className="border-2  rounded-xl">
+                    <div className="border-b border-gray-500 px-1">
+                      <h1 className="font-semibold ">Creator :</h1>
+                    </div>
+                    <div className="py-1 px-2">
+                      <p className="text-black">
+                        <span className="font-semibold">Name :</span>{" "}
+                        {creator_name}
+                      </p>
+                      <p className="text-black">
+                        <span className="font-semibold">Emial :</span>{" "}
+                        {creator_email}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-full mt-3">
+                    <div className="">
+                      <span className="font-semibold">Description :</span>
+                    </div>
+                    <p className="text-gray-700">{description}</p>
+                  </div>
+                  <div className="mt-3">
+                    <span className="font-semibold">Progress:</span>
+                    <br />
+                    <progress
+                      className="progress mt-2 rounded-full progress-primary h-5 w-full md:w-80 lg:w-120"
+                      value={15}
+                      max="30"
+                    ></progress>
+                  </div>
+                  <button className="btn btn-primary px-10 mt-4 btn-outline">
+                    Mark Complete
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

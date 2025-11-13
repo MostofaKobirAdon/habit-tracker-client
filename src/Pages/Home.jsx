@@ -6,6 +6,7 @@ import Feedback from "../Components/Home/Feedback";
 import AuthContext from "../Context/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import WhyChooseUs from "../Components/Home/WhyChooseUs";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
@@ -39,6 +40,7 @@ const Home = () => {
           <RecentHabits latestHabits={latestHabits}></RecentHabits>
           <WhyBuildHabits></WhyBuildHabits>
           <Feedback></Feedback>
+          <WhyChooseUs></WhyChooseUs>
         </div>
       )}
     </div>
