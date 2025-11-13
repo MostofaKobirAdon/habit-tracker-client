@@ -41,6 +41,8 @@ const Home = () => {
           <WhyBuildHabits></WhyBuildHabits>
           <Feedback></Feedback>
           <WhyChooseUs></WhyChooseUs>
+
+         
         </div>
       )}
     </div>

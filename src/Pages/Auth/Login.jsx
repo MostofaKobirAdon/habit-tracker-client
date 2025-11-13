@@ -61,7 +61,7 @@ const Login = () => {
   return (
     <div className="bg-base-100 pb-15 pt-30">
       <div className="max-w-11/12  lg:max-w-6xl md:max-w-[700px] mx-auto flex flex-col lg:flex-row bg-blue-50 shadow-lg rounded-2xl lg:h-[483px]">
-        <div className="relative md:h-65">
+        <div className="relative md:h-65 lg:h-full">
           <img
             src={goals}
             alt=""
@@ -77,7 +77,7 @@ const Login = () => {
           <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
             Log In To Your Account
           </h1>
-          <form onSubmit={handleLogin} className="fieldset w-full ">
+          <form onSubmit={handleLogin} className="fieldset w-full lg:w-[350px]">
             <label className="label">Email</label>
             <input
               type="email"

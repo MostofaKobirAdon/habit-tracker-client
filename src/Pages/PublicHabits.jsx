@@ -4,12 +4,12 @@ import Swal from "sweetalert2";
 import Card from "../Components/Card";
 
 const PublicHabits = () => {
-  const [habits, setHabits] = useState([]); // all data
-  const [filteredHabits, setFilteredHabits] = useState([]); // filtered data
+  const [habits, setHabits] = useState([]);
+  const [filteredHabits, setFilteredHabits] = useState([]);
   const [loading, setLoading] = useState(false);
+
   const [filterValue, setFilterValue] = useState("");
 
-  // Load data once
   useEffect(() => {
     setLoading(true);
     axios
@@ -41,7 +41,6 @@ const PublicHabits = () => {
     setFilteredHabits(filtered);
   };
 
-  // search handler
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase().trim();
     if (!value) {
@@ -54,7 +53,6 @@ const PublicHabits = () => {
     setFilteredHabits(filtered);
   };
 
-  // filter by category
 
   return (
     <div>
