@@ -5,8 +5,8 @@ const WhyChooseUs = () => {
     <div>
       <div class="py-20 bg-gradient-to-b from-sky-200 to-base-100">
         <div class="max-w-11/12 md:max-w-[700px] lg:max-w-6xl mx-auto text-center">
-          <h2 class="text-4xl font-bold mb-4">Why Choose Us</h2>
-          <p class="text-gray-600 mb-12">
+          <h2 class="text-2xl font-semibold">Why Choose Us</h2>
+          <p class="text-gray-700 mb-12">
             Build better habits, stay motivated, and track your progress
             effortlessly.
           </p>

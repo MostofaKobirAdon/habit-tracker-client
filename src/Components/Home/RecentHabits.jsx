@@ -9,9 +9,9 @@ const RecentHabits = ({ latestHabits }) => {
           <h1 className="  text-2xl text-base-content font-semibold">
             Discover New Habits
           </h1>
-          <p className="text-gray-600 ">
-            “Explore the latest public habits created by our community and get
-            inspired to start your own.”
+          <p className="text-gray-700 ">
+            Explore the latest public habits created by our community and get
+            inspired to start your own.
           </p>
         </div>
         <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-15 mt-8">

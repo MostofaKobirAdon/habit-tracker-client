@@ -49,9 +49,10 @@ const AddHabit = () => {
   return (
     <div className="bg-base-100 min-h-screen py-b py-26">
       <div className="  lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto">
-        <h1 className="text-center mb-8 text-3xl font-semibold text-blue-800">
+        <h1 className="text-center mb-8 text-2xl font-semibold text-blue-800">
           Add a Habit
         </h1>
+        <p className="text-gray-700">Start Adding Your Habits</p>
 
         <div className="bg-blue-50 shadow-xl rounded-2xl p-10">
           <form onSubmit={handleAddHabit} className="space-y-8">

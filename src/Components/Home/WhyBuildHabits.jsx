@@ -11,7 +11,7 @@ const WhyBuildHabits = () => {
           <h1 className="  text-2xl text-base-content font-semibold">
             Why Build a Habit?
           </h1>
-          <p className="text-gray-600 ">
+          <p className="text-gray-700 ">
             Small daily actions create big transformations. Discover the power
             of consistency and growth
           </p>
@@ -25,7 +25,7 @@ const WhyBuildHabits = () => {
               <h2 className="text-2xl mt-2 text-center font-bold">
                 Better Focus
               </h2>
-              <p className="text-sm mt-1 font-medium text-center text-gray-700">
+              <p className="text-sm mt-1 font-medium text-center text-gray-800">
                 Building habits helps train your mind to stay on task, reducing
                 distractions and improving concentration.
               </p>
@@ -37,7 +37,7 @@ const WhyBuildHabits = () => {
               <h2 className="text-2xl mt-2 text-center font-bold">
                 Reduced Stress
               </h2>
-              <p className="text-sm mt-1 font-medium text-center text-gray-700">
+              <p className="text-sm mt-1 font-medium text-center text-gray-800">
                 Daily routines reduce decision fatigue and bring structure,
                 lowering anxiety and stress levels.
               </p>
@@ -49,7 +49,7 @@ const WhyBuildHabits = () => {
               <h2 className="text-2xl mt-2 text-center font-bold">
                 Improved Health{" "}
               </h2>
-              <p className="text-sm mt-1 font-medium text-center text-gray-700">
+              <p className="text-sm mt-1 font-medium text-center text-gray-800">
                 Tracking wellness habits like sleep, exercise, and hydration
                 leads to long-term physical and mental health benefits.
               </p>
@@ -61,7 +61,7 @@ const WhyBuildHabits = () => {
               <h2 className="text-2xl mt-2 text-center font-bold">
                 Get Productive
               </h2>
-              <p className="text-sm mt-1 font-medium text-center text-gray-700">
+              <p className="text-sm mt-1 font-medium text-center text-gray-800">
                 Consistent habits turn goals into actions, helping you achieve
                 more with less effort over time.
               </p>

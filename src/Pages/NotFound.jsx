@@ -13,7 +13,7 @@ const NotFound = () => {
           <PiNumberFourBold size={105} />
         </div>
         <h1 className="text-5xl mt-3 font-bold">Page Not Found</h1>
-        <p className="text-lg text-gray-700 mt-2">
+        <p className="text-lg text-gray-800 mt-2">
           The page you are looking for doesn't exist
         </p>
         <Link to={"/"} className="btn btn-primary mt-4 px-6">

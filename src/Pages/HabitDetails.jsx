@@ -10,18 +10,122 @@ const HabitDetails = () => {
   const [loading, setLoading] = useState(false);
   const [showErr, setShowErr] = useState(false);
 
+  const calculateCurrentStreak = (completionHistory = []) => {
+    if (completionHistory.length === 0) return 0;
+
+    const dates = completionHistory
+      .map((d) => new Date(d).setHours(0, 0, 0, 0))
+      .sort((a, b) => b - a);
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (dates[0] !== today.getTime() && today - dates[0] > 86400000) return 0;
+
+    let streak = 1;
+    for (let i = 1; i < dates.length; i++) {
+      const diff = (dates[i - 1] - dates[i]) / (1000 * 60 * 60 * 24);
+      if (diff === 1) streak++;
+      else break;
+    }
+    return streak;
+  };
+
+  const calculateLast30DaysProgress = (completionHistory = []) => {
+    const last30Days = Array.from({ length: 30 }, (_, i) => {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      return date.toDateString();
+    });
+
+    const completedDates = completionHistory.map((d) =>
+      new Date(d).toDateString()
+    );
+    const completedCount = last30Days.filter((d) =>
+      completedDates.includes(d)
+    ).length;
+
+    return completedCount; 
+  };
+
   useEffect(() => {
     setLoading(true);
     axios
       .get(`${import.meta.env.VITE_API_URL}/habits/${id}`)
-      .then((data) => setData(data.data))
-      .catch((err) => {
-        setShowErr(true);
-      })
+      .then((res) => setData(res.data))
+      .catch(() => setShowErr(true))
       .finally(() => setLoading(false));
   }, [id]);
-  const { image, title, description, category, creator_name, creator_email } =
-    data || {};
+
+  const {
+    image,
+    title,
+    description,
+    category,
+    creator_name,
+    creator_email,
+    completionHistory = [],
+  } = data || {};
+
+  const streak = calculateCurrentStreak(completionHistory);
+  const progress = calculateLast30DaysProgress(completionHistory);
+
+  const handleMarkComplete = () => {
+    if (!data) return;
+
+    const today = new Date().toISOString().split("T")[0];
+
+    const alreadyMarked = (completionHistory || []).some(
+      (d) => new Date(d).toISOString().split("T")[0] === today
+    );
+    if (alreadyMarked) {
+      Swal.fire({
+        position: "center",
+        icon: "info",
+        title: "Already marked as complete today!",
+        showConfirmButton: false,
+        timer: 1700,
+      });
+      return;
+    }
+
+    setData((prev) => ({
+      ...prev,
+      completionHistory: [...(prev.completionHistory || []), today],
+    }));
+
+    axios
+      .patch(`${import.meta.env.VITE_API_URL}/habits/${id}/completionHistory`, {
+        date: today,
+      })
+      .then((res) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Marked as complete",
+          showConfirmButton: false,
+          timer: 1700,
+        });
+        setData((prev) => ({
+          ...prev,
+          completionHistory:
+            res.data.completionHistory || prev.completionHistory,
+        }));
+      })
+      .catch((err) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.response?.data?.message || err.message}`,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        setData((prev) => ({
+          ...prev,
+          completionHistory: prev.completionHistory.filter((d) => d !== today),
+        }));
+      });
+  };
 
   return (
     <div className="pt-28 pb-15">
@@ -35,7 +139,7 @@ const HabitDetails = () => {
             <div className="bg-primary/20 p-4 shadow-2xl rounded-2xl py-10  lg:max-w-6xl md:max-w-[700px] max-w-11/12 mx-auto flex flex-col items-center justify-center">
               <TbMoodSad size={130} />
               <h1 className="font-bold text-5xl my-2">Oops!</h1>
-              <h2 className="text-2xl font-semibold text-gray-700 mt-0.5">
+              <h2 className="text-2xl font-semibold text-gray-800 mt-0.5">
                 Data Not Found
               </h2>
               <div className="md:flex-row flex-col gap-3 flex md:gap-3 mt-3">
@@ -73,7 +177,7 @@ const HabitDetails = () => {
                         {creator_name}
                       </p>
                       <p className="text-black">
-                        <span className="font-semibold">Emial :</span>{" "}
+                        <span className="font-semibold">Email :</span>{" "}
                         {creator_email}
                       </p>
                     </div>
@@ -82,18 +186,24 @@ const HabitDetails = () => {
                     <div className="">
                       <span className="font-semibold">Description :</span>
                     </div>
-                    <p className="text-gray-700">{description}</p>
+                    <p className="text-gray-800">{description}</p>
                   </div>
                   <div className="mt-3">
                     <span className="font-semibold">Progress:</span>
                     <br />
                     <progress
                       className="progress mt-2 rounded-full progress-primary h-5 w-full md:w-80 lg:w-120"
-                      value={15}
+                      value={progress}
                       max="30"
                     ></progress>
+                    <p className="text-sm text-gray-700 mt-1">
+                      Current Streak: {streak} {streak === 1 ? "day" : "days"}
+                    </p>
                   </div>
-                  <button className="btn btn-primary px-10 mt-4 btn-outline">
+                  <button
+                    onClick={handleMarkComplete}
+                    className="btn btn-primary px-10 mt-4 btn-outline"
+                  >
                     Mark Complete
                   </button>
                 </div>

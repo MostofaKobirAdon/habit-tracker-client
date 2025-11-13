@@ -53,7 +53,6 @@ const PublicHabits = () => {
     setFilteredHabits(filtered);
   };
 
-
   return (
     <div>
       {loading ? (
@@ -66,7 +65,7 @@ const PublicHabits = () => {
             <h1 className="text-2xl text-base-content font-semibold">
               All Public Habits
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-700">
               Explore the habits people are building every day.
             </p>
           </div>

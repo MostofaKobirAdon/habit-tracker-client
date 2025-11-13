@@ -13,10 +13,10 @@ const Feedback = () => {
   return (
     <div className="pt-4  bg-base-100 w-full mb-10">
       <div className="text-center md:  lg:max-w-6xl md:max-w-[700px]  max-w-11/12 mx-auto mb-10">
-        <h2 className="text-3xl font-semibold text-base-content">
+        <h2 className="text-2xl font-semibold text-base-content">
           What Our Clients Say
         </h2>
-        <p className="text-gray-600 mt-2">
+        <p className="text-gray-700 ">
           Real stories from people who built lasting habits and transformed
           their daily routines.
         </p>
@@ -45,7 +45,7 @@ const Feedback = () => {
                 alt="client"
                 className="w-16 h-16 rounded-full object-cover overflow-hidden mx-auto mb-4 border-2 border-primary"
               />
-              <p className="text-gray-700   mb-3">
+              <p className="text-gray-800   mb-3">
                 “Habit Tracker helped me stay consistent with my morning
                 routine. Now I start every day productively!”
               </p>
@@ -61,7 +61,7 @@ const Feedback = () => {
                 alt="client"
                 className="w-16 h-16 rounded-full object-cover overflow-hidden mx-auto mb-4 border-2 border-primary"
               />
-              <p className="text-gray-700   mb-3">
+              <p className="text-gray-800   mb-3">
                 “I’ve built a 30-day streak thanks to the reminder. The clean UI
                 and animations make it fun to use!”
               </p>
@@ -79,7 +79,7 @@ const Feedback = () => {
                 alt="client"
                 className="w-16 h-16 rounded-full object-cover overflow-hidden mx-auto mb-4 border-2 border-primary"
               />
-              <p className="text-gray-700   mb-3">
+              <p className="text-gray-800   mb-3">
                 “Seeing my progress visually keeps me motivated to stay on track
                 every single day.”
               </p>
@@ -97,7 +97,7 @@ const Feedback = () => {
                 alt="client"
                 className="w-16 h-16 rounded-full object-cover overflow-hidden mx-auto mb-4 border-2 border-primary"
               />
-              <p className="text-gray-700   mb-3">
+              <p className="text-gray-800   mb-3">
                 “This app made it easy to create healthy habits and actually
                 stick to them — love it!”
               </p>

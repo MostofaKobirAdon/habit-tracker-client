@@ -115,7 +115,7 @@ const Register = () => {
           </div>
         </div>
         <div className="card-body  flex items-center py-10 justify-center">
-          <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
+          <h1 className="text-center mb-6 text-2xl  font-semibold">
             Sign Up To Your Account
           </h1>
           <form

@@ -74,7 +74,7 @@ const Login = () => {
           </div>
         </div>
         <div className="card-body   rounded-2xl flex items-center py-10 justify-center">
-          <h1 className="text-center mb-6 text-2xl text-blue-900 font-semibold">
+          <h1 className="text-center mb-6 text-2xl  font-semibold">
             Log In To Your Account
           </h1>
           <form onSubmit={handleLogin} className="fieldset w-full lg:w-[350px]">

@@ -1,16 +1,75 @@
-# React + Vite
+# Habit Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-18-blue?logo=react&logoColor=white)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-blue?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Axios](https://img.shields.io/badge/Axios-1.4-lightgrey?logo=axios&logoColor=white)](https://axios-http.com/)
+[![SweetAlert2](https://img.shields.io/badge/SweetAlert2-11-orange?logo=javascript&logoColor=white)](https://sweetalert2.github.io/)
 
-Currently, two official plugins are available:
+**Habit Tracker** is a web application that helps users create, update, and manage their daily habits. It provides features like habit streak tracking, reminders, and progress management to stay consistent and motivated.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Demo
 
-## React Compiler
+[View Live Project](https://habit-tracker-website.netlify.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- Create, update, and delete habits
+- Track streaks for each habit
+- User authentication and secure access
+- Real-time updates with Axios
+- SweetAlert2 notifications for actions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+- **Frontend:** React, Tailwind CSS
+- **Routing:** React Router
+- **HTTP Requests:** Axios
+- **Notifications:** SweetAlert2
+- **Backend:** REST API (authenticated)
+
+## 💻 Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   ```
+
+## 📝 Usage
+
+### 1. View Habits
+
+- After logging in, navigate to the **My Habits** page.
+- All your habits are displayed in a table with:
+  - **Title**
+  - **Category**
+  - **Current Streak**
+  - **Created Date**
+
+### 2. Create a Habit
+
+- Use the habit creation form (handled elsewhere in the app).
+- Fill in the following fields:
+  - Title
+  - Category
+  - Description
+  - Reminder Time
+  - Image URL
+
+### 3. Update a Habit
+
+- Click the **Update** button next to a habit.
+- A modal will appear with the habit details pre-filled.
+- Edit any field and click **Update Habit** to save changes.
+
+### 4. Delete a Habit
+
+- Click the **Delete** button next to a habit.
+- A confirmation popup will appear:
+  - **Confirm:** Habit is deleted and removed from the table.
+  - **Cancel:** No changes are made.
+
+### 5. Mark Habit Complete
+
+- Click the **Mark Complete** button next to a habit.
+- This logs today’s completion and increases the habit streak.
+- The streak is updated in real-time in the table.
