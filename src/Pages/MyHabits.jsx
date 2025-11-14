@@ -10,8 +10,8 @@ const MyHabits = () => {
   const modalRef = useRef();
   const { user } = useContext(AuthContext);
 
-  const calculateCurrentStreak = (completionHistory = []) => {
-    if (!completionHistory || completionHistory.length === 0) return 0;
+  const calculateStreak = (completionHistory = []) => {
+    if (completionHistory.length === 0) return 0;
 
     const dates = completionHistory
       .map((d) => new Date(d).setHours(0, 0, 0, 0))
@@ -237,8 +237,8 @@ const MyHabits = () => {
                       </td>
                       <td>
                         <div className="badge badge-sm bg-emerald-600">
-                          {calculateCurrentStreak(habit.completionHistory)}{" "}
-                          {calculateCurrentStreak(habit.completionHistory) === 1
+                          {calculateStreak(habit.completionHistory)}{" "}
+                          {calculateStreak(habit.completionHistory) === 1
                             ? "day"
                             : "days"}
                         </div>

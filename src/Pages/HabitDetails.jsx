@@ -10,7 +10,7 @@ const HabitDetails = () => {
   const [loading, setLoading] = useState(false);
   const [showErr, setShowErr] = useState(false);
 
-  const calculateCurrentStreak = (completionHistory = []) => {
+  const calculateStreak = (completionHistory = []) => {
     if (completionHistory.length === 0) return 0;
 
     const dates = completionHistory
@@ -31,7 +31,7 @@ const HabitDetails = () => {
     return streak;
   };
 
-  const calculateLast30DaysProgress = (completionHistory = []) => {
+  const calculate30DaysProgress = (completionHistory = []) => {
     const last30Days = Array.from({ length: 30 }, (_, i) => {
       const date = new Date();
       date.setDate(date.getDate() - i);
@@ -41,11 +41,11 @@ const HabitDetails = () => {
     const completedDates = completionHistory.map((d) =>
       new Date(d).toDateString()
     );
-    const completedCount = last30Days.filter((d) =>
-      completedDates.includes(d)
+    const completedCount = last30Days.filter((day) =>
+      completedDates.includes(day)
     ).length;
 
-    return completedCount; 
+    return completedCount;
   };
 
   useEffect(() => {
@@ -67,8 +67,8 @@ const HabitDetails = () => {
     completionHistory = [],
   } = data || {};
 
-  const streak = calculateCurrentStreak(completionHistory);
-  const progress = calculateLast30DaysProgress(completionHistory);
+  const streak = calculateStreak(completionHistory);
+  const progress = calculate30DaysProgress(completionHistory);
 
   const handleMarkComplete = () => {
     if (!data) return;

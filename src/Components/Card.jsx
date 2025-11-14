@@ -13,7 +13,7 @@ const Card = ({ data }) => {
     return text.slice(0, 90) + " ...";
   };
 
-  const calculateCurrentStreak = (history = []) => {
+  const calculateStreak = (history = []) => {
     if (!history || history.length === 0) return 0;
 
     const dates = history
@@ -34,7 +34,7 @@ const Card = ({ data }) => {
     return streak;
   };
 
-  const currentStreak = calculateCurrentStreak(completionHistory);
+  const currentStreak = calculateStreak(completionHistory);
 
   return (
     <div className="shadow-[0px_0px_8px_1px_#757575] hover:scale-101 rounded-xl brightness-99 bg-base-200 h-80 relative">
